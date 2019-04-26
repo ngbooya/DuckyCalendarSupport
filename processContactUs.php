@@ -1,3 +1,4 @@
+
 <?php
 	require('header.php');
 	$servername = "localhost";
@@ -19,28 +20,24 @@
 
 	$insertContact = "INSERT INTO contactUs (name, email, discover,message) VALUES('$name','$email','$discover','$message')";
 
-	if($conn->query($insertContact) === TRUE){
-		echo "New record created sucessfully";
+	if($conn->query($insertContact) === TRUE){?>
+		<div class="alert alert-success" role="alert">Thank you for reaching out to us.  We will get back to you soon.</div>
+		<?php
+		$conn->close();
+		sleep(3);
+		header('Location: index.php');
+		exit;
 
 	}else{
+		// <div class="alert alert-success" role="alert">..</div>
+		$conn->close();
 		echo "ERROR " . $insertContact . "<br>" . $conn->error;
 	}
 
-	$conn->close();
+
  ?>
-<div class="modal fade" id=contactConfirmation tabindex="-1" role="dialog">
-	<div class="model-dialog">
-		<div class="model-content">
-			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title" id="myModalLabel">Thank you for pre-registering!</h4>
-			</div>
-		</div>
 
-	</div>
-
-</div>
-
+<!-- <div class="alert alert-success" role="alert">...</div> -->
 
 
  <?php
