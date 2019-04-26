@@ -4,7 +4,8 @@
 ?>
 
 <div class="jumbotron vertical-center" id="home">
-	<h1 class="display-3">Welcome to Ducky Calendars</h1>
+
+	<h1 class="display-3">Welcome to Ducky Calendars <?php echo $_SESSION['userFirstName'] ?></h1>
 	<p><small>Go through your day quacking!</small></p>
 	<hr class="m-y-2">
 	<p class="lead">This mobile app is the first of its kind helping you get through you busy day.  The last thing you would want to do is to look down to a crowded busy looking calendar.  Ducky Calendars simplifies your day by a simple yet information daily schedule. </p>
@@ -18,6 +19,7 @@
 		<button type="button" class="btn btn-success" data-toggle="modal" data-target="#signUpModal">Sign Up!</button>
 		</div>
 
+<!-- Member sign in pop up -->
 <div class="modal fade" id="signInModal" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
@@ -28,15 +30,16 @@
         </button>
       </div>
       <div class="modal-body">
-				<form>
-				  <div class="form-group" action="login.php",method="post">
+				<form action="login.php" method="post">
+				  <div class="form-group">
 				    <label for="memberEmail">Email address</label>
-				    <input type="email" class="form-control" id="memberEmail" aria-describedby="emailHelp" placeholder="Enter email">
+				    <input type="email" class="form-control" name="memberEmail" id="memberEmail" aria-describedby="emailHelp" placeholder="Enter email">
 				    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-
-						<label for="memberPassword">Password</label>
-				    <input type="password" class="form-control" id="memberPassword" placeholder="Password">
 				  </div>
+					<div class="form-group">
+						<label for="memberPassword">Password</label>
+				    <input type="password" class="form-control" name="memberPassword" id="memberPassword" placeholder="Password">
+					</div>
 					<div class="col-md-12 text-center">
 						<button type="submit" class="btn btn-primary" name="login-submit">Login</button>
 					</div>
@@ -53,7 +56,7 @@
   </div>
 </div>
 
-
+<!-- Non Member sign up pop up  -->
 <div class="modal fade" id="signUpModal" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">

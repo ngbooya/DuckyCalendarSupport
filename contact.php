@@ -23,7 +23,7 @@
 				<option value="From a friend">From a friend</option>
 				<option value="Youtube Ad">Youtube Ad</option>
 				<option value="App Store Suggestion">App Store Suggestion</option>
-				<option value="Other">Yellow</option>
+				<option value="Other">Other</option>
 			</select>
 		</div>
 

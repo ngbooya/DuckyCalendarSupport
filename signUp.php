@@ -27,11 +27,15 @@ if(isset($_POST['signup-submit'])){
 		$insertNewMember = "INSERT INTO duckySupport.members (firstname,lastname,email,password) VALUES('$firstname','$lastname','$email','$hashpassword')";
 
 		if($conn->query($insertNewMember) === TRUE){
-			echo "User creation is successful!!";
+			header("Location: ./index.php?signup=success");
+			exit();
 		}else{
 			echo "ERROR" . $insertNewMember . "<br>" . $conn->error;
 		}
 	}
+}else{
+	header("Location: ./index.php");
+	exit();
 }
 
 
