@@ -27,11 +27,23 @@ $contactTable = "CREATE TABLE IF NOT EXISTS contactUs(
 	discover VARCHAR(50),
 	message TEXT NOT NULL
 )";
-
 if ($conn->query($contactTable) === TRUE){
 	echo "Contact table created successfully";
 }else{
-	echo "Error creating table: " . $conn->error;
+	echo "Error creating CONTACT table: " . $conn->error;
+}
+
+$membersTable = "CREATE TABLE IF NOT EXISTS members(
+	id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+	firstname VARCHAR(30) NOT NULL,
+	lastname VARCHAR(30) NOT NULL,
+	email VARCHAR(50) NOT NULL,
+	password VARCHAR(50) NOT NULL
+)";
+if ($conn->query($membersTable) === TRUE){
+	echo "Members table created successfully";
+}else{
+	echo "Error creating MEMBERS table: " . $conn->error;
 }
 
 
