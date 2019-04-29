@@ -12,7 +12,7 @@ session_start();
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-		
+
 	</head>
 	<body>
 	<header>
@@ -23,18 +23,59 @@ session_start();
 		  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 		   	<span class="navbar-toggler-icon"></span>
 		  </button>
-		  <div class="collapse navbar-collapse" id="navbarNav">
+		  <div class="container-fluid" id="navbarNav">
 		    <ul class="navbar-nav">
 		      <li class="nav-item active">
-		        <a class="nav-link" href="index.php">Home <span class="sr-only">(current)</span></a>
+		        <a class="nav-link" href=
+						<?php
+						 	if(!isset($_SESSION['userFirstName'])){
+								echo "index.php";
+							}else if(isset($_SESSION['userFirstName'])){
+								echo "memberIndex.php";
+							}
+
+						?>
+						>Home <span class="sr-only">(current)</span></a>
 		      </li>
 		      <li class="nav-item">
-		        <a class="nav-link" href="contact.php">Contact Us</a>
+		        <a class="nav-link" href="contact.php">
+							<?php
+								if(!isset($_SESSION['userFirstName'])){
+									echo "Contact Us";
+								}
+							 ?>
+						</a>
 		      </li>
-					<li class="nav-item justify-content-end">
-						<a class="nav-link" href="logout.php">Logout</a>
-					</li>
+					<li class="nav-item">
+		        <a class="nav-link" href="featureRequest.php">
+							<?php
+								if(isset($_SESSION['userFirstName'])){
+									echo "Request Feature";
+								}
+							 ?>
+						</a>
+		      </li>
+					<li class="nav-item">
+		        <a class="nav-link" href="support.php">
+							<?php
+								if(isset($_SESSION['userFirstName'])){
+									echo "Support";
+								}
+							 ?>
+						</a>
+		      </li>
 		    </ul>
+				<ul class="nav navbar-nav navbar-right">
+					<li class="nav-item">
+						<a class="nav-link" href="logout.php">
+							<?php
+								if(isset($_SESSION['userFirstName'])){
+									echo "Logout";
+								}
+							?>
+						</a>
+					</li>
+				</ul>
 		  </div>
 		</nav>
 	</header>

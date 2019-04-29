@@ -27,7 +27,7 @@ if(isset($_POST['login-submit'])){
 			session_start();
 			$_SESSION['userId'] = $row['id'];
 			$_SESSION['userFirstName'] = $row['firstname'];
-			header("Location: ./index.php?credentials=valid");
+			header("Location: ./memberIndex.php?credentials=valid");
 			exit();
 		}else{
 			header("Location: ./index.php?credentials=invalid");

@@ -20,24 +20,19 @@
 
 	$insertContact = "INSERT INTO contactUs (name, email, discover,message) VALUES('$name','$email','$discover','$message')";
 
-	if($conn->query($insertContact) === TRUE){?>
-		<div class="alert alert-success" role="alert">Thank you for reaching out to us.  We will get back to you soon.</div>
-		<?php
+	if($conn->query($insertContact) === TRUE){
+		// <div class="alert alert-success" role="alert">Thank you for reaching out to us.  We will get back to you soon.</div>
 		$conn->close();
-		sleep(3);
-		header('Location: index.php');
+		header('Location: index.php?submit=contactus-success');
 		exit;
 
 	}else{
-		// <div class="alert alert-success" role="alert">..</div>
 		$conn->close();
 		echo "ERROR " . $insertContact . "<br>" . $conn->error;
 	}
 
 
  ?>
-
-<!-- <div class="alert alert-success" role="alert">...</div> -->
 
 
  <?php

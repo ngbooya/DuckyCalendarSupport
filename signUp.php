@@ -17,20 +17,23 @@ if(isset($_POST['signup-submit'])){
 	$confirmPassword = trim($_POST['newMemberConfirmPassword']);
 
 	if(empty($firstname) || empty($lastname) || empty($email)){
-		header("Location: ./index.php?error=emptyfields&name" . $firstname . $lastname ."&email=".$email);
+		header("Location: ./index.php?error=emptyfields&name");
 		exit();
 	}else if($password != $confirmPassword){
-		header("Location: ./index.php?error=passwordsmismatch&name" . $firstname . $lastname ."&email=".$email);
+		header("Location: ./index.php?error=passwordsmismatch");
 		exit();
 	}else{
 		$hashpassword = md5($password);
 		$insertNewMember = "INSERT INTO duckySupport.members (firstname,lastname,email,password) VALUES('$firstname','$lastname','$email','$hashpassword')";
 
 		if($conn->query($insertNewMember) === TRUE){
-			header("Location: ./index.php?signup=success");
+			header("Location: ./index.php?submit=signup-success");
+			exit();
+		}else if(mysqli_errno($conn) == 1062){
+			header("Location: ./index.php?error=duplicate-email");
 			exit();
 		}else{
-			echo "ERROR" . $insertNewMember . "<br>" . $conn->error;
+			echo mysqli_errno($conn);
 		}
 	}
 }else{
