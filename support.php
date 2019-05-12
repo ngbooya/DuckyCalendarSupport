@@ -52,7 +52,6 @@
 		</div>
 		<button type="submit" class="btn btn-primary" name="support-submit">Send Message</button>
  	</form>
-
  </div>
 
  <?php

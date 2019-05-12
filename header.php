@@ -64,8 +64,18 @@ session_start();
 							 ?>
 						</a>
 		      </li>
+
 		    </ul>
 				<ul class="nav navbar-nav navbar-right">
+					<li class="nav-item">
+		        <a class="nav-link" href="settings.php">
+							<?php
+								if(isset($_SESSION['userFirstName'])){
+									echo "Settings";
+								}
+							 ?>
+						</a>
+		      </li>
 					<li class="nav-item">
 						<a class="nav-link" href="logout.php">
 							<?php

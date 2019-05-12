@@ -47,7 +47,6 @@ if(isset($_GET['submit'])){
 				  <div class="form-group">
 
 				    <label for="memberEmail">Email address</label>
-
 				    <input type="email" class="form-control" name="memberEmail" id="memberEmail" aria-describedby="emailHelp" placeholder="Enter email">
 				    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
 				  </div>
